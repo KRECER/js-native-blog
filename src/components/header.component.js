@@ -1,15 +1,15 @@
 import {Component} from "../core/component";
 
+const onClickButtonStart = () => {
+  localStorage.setItem('isBtnStartPressed', JSON.stringify(true));
+  this.hide();
+};
+
 class HeaderComponent extends Component {
+
   constructor(id) {
     super(id);
-    this.init();
   }
-
-  #onClickButtonStart = () => {
-    localStorage.setItem('isBtnStartPressed', JSON.stringify(true));
-    this.hide();
-  };
 
   init() {
     const isBtnStartPressed = localStorage.getItem('isBtnStartPressed');
@@ -19,7 +19,7 @@ class HeaderComponent extends Component {
     }
 
     const button = this.$el.querySelector('.js-button-start');
-    button.addEventListener('click', this.#onClickButtonStart);
+    button.addEventListener('click', onClickButtonStart);
   }
 }
 
