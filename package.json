@@ -1,0 +1,34 @@
+{
+  "name": "js-native-blog",
+  "version": "1.0.0",
+  "description": "Js Native Blog",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "blog",
+    "native"
+  ],
+  "author": "Igor Sudenko",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "7.8.0",
+    "@babel/plugin-proposal-class-properties": "7.8.0",
+    "@babel/preset-env": "7.8.2",
+    "babel-loader": "8.0.6",
+    "core-js": "3.6.3",
+    "html-webpack-plugin": "3.2.0",
+    "webpack": "4.41.5",
+    "webpack-cli": "3.3.10",
+    "webpack-dev-server": "3.10.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.1",
+    "regenerator-runtime": "^0.13.3"
+  }
+}
