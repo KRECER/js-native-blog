@@ -1,11 +1,14 @@
 import {Component} from "../core/component";
 import {Form} from "../core/form";
+import {Validators} from "../core/validators";
 
 const onSubmit = function(event) {
   event.preventDefault();
-  const formData = this.form.getValuesFromControls();
-  formData.type = this.$el.type.value;
-  console.log(formData);
+
+  if (this.form.isValid) {
+    const formData = {type: this.$el.type.value, ...this.form.getValuesFromControls()};
+    console.log(formData);
+  }
 };
 
 class CreateComponent extends Component {
@@ -15,7 +18,7 @@ class CreateComponent extends Component {
 
   init() {
     this.$el.addEventListener('submit', onSubmit.bind(this));
-    this.form = new Form(this.$el, {title: [], fulltext: []});
+    this.form = new Form(this.$el, {title: [Validators.required], fulltext: [Validators.required, Validators.minLength(7)]});
   }
 }
 
