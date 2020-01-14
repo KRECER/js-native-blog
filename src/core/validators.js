@@ -1,6 +1,6 @@
 class Validators {
   static required(value = '') {
-    return value && value.trim();
+    return value.length > 1;
   }
 
   static minLength(len) {
