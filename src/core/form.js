@@ -18,9 +18,8 @@ const clearError = ($control) => {
 
   if ($errorNode) {
     $parentNode.removeChild($errorNode);
+    $control.classList.remove('invalid');
   }
-
-  $control.classList.remove('invalid');
 };
 
 class Form {
