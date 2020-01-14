@@ -7,7 +7,8 @@ const onSubmit = function(event) {
 
   if (this.form.isValid) {
     const formData = {type: this.$el.type.value, ...this.form.getValuesFromControls()};
-    console.log(formData);
+    this.$el.reset();
+    alert('Запись была добавлена в базу данных!');
   }
 };
 
