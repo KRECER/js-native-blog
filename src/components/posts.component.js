@@ -1,5 +1,5 @@
 import {Component} from "../core/component";
-import {ApiService} from "../core/api.service";
+import {ApiService} from "../services/api.service";
 import {Template} from "../core/template";
 
 class PostsComponent extends Component {
