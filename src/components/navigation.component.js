@@ -1,16 +1,17 @@
 import {Component} from "../core/component";
+import {Factory} from "./factory";
 
 const showTabItem = (name) => {
-  const $tab = document.getElementById(name);
-  $tab.classList.remove('hide');
+  const component = Factory.create(name);
+  component.show();
 };
 
 const hideTabItem = (name) => {
-  const $tab = document.getElementById(name);
-  $tab.classList.add('hide');
+  const component = Factory.create(name);
+  component.hide();
 };
 
-const onClickTabLink = function(event){
+const onClickTabLink = function(event) {
   event.preventDefault();
   const target = event.target;
 
@@ -19,7 +20,6 @@ const onClickTabLink = function(event){
     const prevActiveTabItem = prevActiveTabLink.dataset.name;
     const activeTabLink = target;
     const activeTabItem = activeTabLink.dataset.name;
-
     prevActiveTabLink.classList.remove('active');
     activeTabLink.classList.add('active');
     hideTabItem(prevActiveTabItem);
