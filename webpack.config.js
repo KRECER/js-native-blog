@@ -8,9 +8,9 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
   },
   devServer: {
+    contentBase: path.join(__dirname, 'dist'),
     overlay: true,
     compress: false,
-    contentBase: path.join(__dirname, 'dist'),
     hot: true
   },
   module: {
