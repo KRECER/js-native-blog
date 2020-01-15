@@ -1,7 +1,7 @@
 import {Component} from "../core/component";
 import {Form} from "../core/form";
 import {Validators} from "../core/validators";
-import {ApiService} from "../core/api.service";
+import {ApiService} from "../services/api.service";
 
 const onSubmit = function(event) {
   event.preventDefault();
