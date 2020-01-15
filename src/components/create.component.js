@@ -1,14 +1,15 @@
 import {Component} from "../core/component";
 import {Form} from "../core/form";
 import {Validators} from "../core/validators";
+import {ApiService} from "../core/api.service";
 
 const onSubmit = function(event) {
   event.preventDefault();
 
   if (this.form.isValid) {
-    const formData = {type: this.$el.type.value, ...this.form.getValuesFromControls()};
+    const formData = {type: this.$el.type.value, date: new Date().toLocaleDateString(), ...this.form.getValuesFromControls()};
+    ApiService.createPost(formData);
     this.$el.reset();
-    alert('Запись была добавлена в базу данных!');
   }
 };
 
