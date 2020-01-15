@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "axios": "^0.19.1",
+    "handlebars": "^4.7.2",
     "regenerator-runtime": "^0.13.3"
   }
 }
