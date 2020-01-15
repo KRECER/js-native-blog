@@ -12,7 +12,10 @@ class Component {
 
   show() {
     this.$el.classList.remove('hide');
+    this.onShow();
   }
+
+  onShow() {}
 }
 
 export {Component};
