@@ -42,13 +42,14 @@ class Form {
     let result = true;
 
     for (let key in this.controls) {
+      let $control = this.form[key];
       let validators = this.controls[key];
 
       validators.forEach((validator) => {
         result = validator(this.form[key].value);
       });
 
-      !result ? setError(this.form[key]) : clearError(this.form[key]);
+      !result ? setError($control) : clearError($control);
     }
 
     return result;
