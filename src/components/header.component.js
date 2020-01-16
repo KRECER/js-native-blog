@@ -1,10 +1,5 @@
 import {Component} from "../core/component";
 
-const onClickButtonStart = function() {
-  localStorage.setItem('isBtnStartPressed', JSON.stringify(true));
-  this.hide();
-};
-
 class HeaderComponent extends Component {
   constructor(id) {
     super(id);
@@ -21,5 +16,10 @@ class HeaderComponent extends Component {
     button.addEventListener('click', onClickButtonStart.bind(this));
   }
 }
+
+const onClickButtonStart = function() {
+  localStorage.setItem('isBtnStartPressed', JSON.stringify(true));
+  this.hide();
+};
 
 export {HeaderComponent};
