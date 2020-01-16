@@ -15,10 +15,19 @@ class ApiService {
 
     for (let key in response.data) {
       response.data[key].id = key;
-      posts.push(response.data[key]);
+      posts.push(response.data[key])
+
+      if(localStorage.favorites) {
+        response.data[key].favorite = localStorage.favorites.includes(response.data[key].id);
+      }
     }
 
     return posts;
+  }
+
+  static async fetchPostById(id) {
+    const response = await server.get(`/posts/${id}.json`);
+    return response.data;
   }
 }
 
