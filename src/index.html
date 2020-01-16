@@ -64,9 +64,9 @@
 </section>
 <script id="post-template" type="text/x-handlebars-template">
   {{#each this}}
-    <div class="panel">
+    <div class="panel js-post">
       <div class="panel-head">
-        <p class="panel-title">{{this.title}}</p>
+        <p class="panel-title js-post-title">{{this.title}}</p>
         <ul class="tags">
           <li class="tag tag-blue tag-rounded">
             {{#compare this.type "news"}}
@@ -84,10 +84,27 @@
       </div>
       <div class="panel-footer w-panel-footer">
         <small>{{this.date}}</small>
-        <button class="button-primary button-round button-small" data-post-id="{{this.id}}">Сохранить</button>
+        {{#if this.favorite}}
+          <button class="button-primary button-round button-small button-danger js-btn-favorite" data-post-id="{{this.id}}">Удалить</button>
+        {{else}}
+          <button class="button-primary button-round button-small js-btn-favorite" data-post-id="{{this.id}}">Сохранить</button>
+        {{/if}}
       </div>
     </div>
   {{/each}}
+</script>
+<script id="favorites-template" type="text/x-handlebars-template">
+    {{#if this}}
+      <ul>
+        {{#each this}}
+          <li>
+            <a class="js-favorite-link" href="#" data-post-id="{{this.id}}">{{this.title}}</a>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>Вы ничего не добавили в избранное</p>
+    {{/if}}
 </script>
 </body>
 </html>
