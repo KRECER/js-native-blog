@@ -49,7 +49,7 @@ class Form {
         result = validator(this.form[key].value);
       });
 
-      !result ? setError($control) : clearError($control);
+      result ? clearError($control) : setError($control);
     }
 
     return result;
